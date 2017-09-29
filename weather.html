@@ -57,6 +57,35 @@
                 });
 
             });
+            $("#searchButton").click(function(e){
+                var value = $("#searchStack").val();
+                console.log(value);
+                e.preventDefault();
+                $("#searchResults").text(value);
+
+                var myurl = "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle="+$("#searchStack").val() + "&site=stackoverflow";
+                //myurl += value;
+                //myurl += ".json";
+                console.log(myurl);
+                $.ajax({
+                    url : myurl,
+                    dataType : "json",
+                    success : function(parsed_json) {
+                        console.log(parsed_json)
+                        var title = parsed_json.items[0].title;
+                        var link = parsed_json.items[0].link;
+                        var last_activity = parsed_json.items[0].last_activity_date;
+                        everything = "<ul>";
+                        everything += "<li>Title: "+title;
+                        everything += "<li>Link: "+link;
+                        everything += "<li>Last Activity: "+last_activity;
+                        everything += "</ul>";
+                        $("#searchResults").html(everything);
+                    }
+                });
+
+            });
+
         });
 
     </script>
@@ -72,6 +101,13 @@
 <textarea id="displayCity">No City</textarea>
 <p>Current Weather</p>
 <div id="weather">No weather</div>
+
+<form>
+    StackExchange Search: <input type="text" id="searchStack" value=""><br>
+    <input id="searchButton" type="submit" value="Search">
+    <p>Top Search Result From Stack Exchange</p>
+    <div id="searchResults">No Results</div>
+</form>
 
 </body>
 </html>
