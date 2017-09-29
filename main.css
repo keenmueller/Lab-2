@@ -1,1 +1,58 @@
+body {
+    background-image: url("https://www.almanac.com/sites/default/files/image_nodes/thanksgiving-weather.jpg");
+    width: 98%;
+    height: 98%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -1000;
+}
 
+#weatherForm {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 98%;
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 20px;
+    border: 5px outset lightblue;
+}
+
+#cityField {
+    margin-right: 10px;
+}
+
+#txtContainer {
+    position: fixed;
+    top: 20%;
+    left: 5%;
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 20px;
+    border: 5px outset lightblue;
+}
+
+#weatherButton {
+
+}
+
+#weatherDisplay {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 20px;
+    border: 5px outset lightblue;
+}
+
+#stackExchangeForm {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 20px;
+    border: 5px outset lightblue;
+}
